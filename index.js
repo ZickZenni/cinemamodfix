@@ -35,11 +35,11 @@ app.listen(5000, () => {
 });
 
 async function getYouTubeData(url) {
-    const v_id = .url.split('v=')[1];
+    const v_id = url.split('v=')[1];
     if (!ytdl.validateID(v_id)) {
         return undefined;
     }
-    const info = await ytdl.getInfo(req.query.url);
+    const info = await ytdl.getInfo(url);
     const data = { formats: info.formats, title: info.player_response.videoDetails.title }
     return data;
 }
